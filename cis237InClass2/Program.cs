@@ -10,6 +10,9 @@ namespace cis237InClass2
     {
         static void Main(string[] args)
         {
+            Hanoi hanoi = new Hanoi();
+
+            hanoi.moveDisk(3, 'A', 'B', 'C');
         }
     }
 }
