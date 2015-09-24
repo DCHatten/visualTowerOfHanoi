@@ -14,6 +14,7 @@ namespace cis237InClass2
         /// <param name="args">Main-line args.</param>
         static void Main(string[] args)
         {
+			// Factorial Section.
             Factorial factorial = new Factorial();
 
             Console.WriteLine("Input a number to calculate the factorial of: " + "     " + "Note: Must be 30 or lower.");
@@ -38,6 +39,9 @@ namespace cis237InClass2
             {
                 Console.WriteLine(Environment.NewLine + "You must enter a number 30 or lower." + Environment.NewLine);
             }
+			
+			// Tower Section.
+            HanoiTower hanoi = new HanoiTower(3);
         }
     }
 }
