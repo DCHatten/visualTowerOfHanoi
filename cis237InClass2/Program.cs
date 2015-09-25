@@ -9,39 +9,37 @@ namespace cis237InClass2
     class Program
     {
         /// <summary>
-        /// Main.
+        /// Main. Selects either factorials or hanoi.
         /// </summary>
         /// <param name="args">Main-line args.</param>
         static void Main(string[] args)
         {
-			// Factorial Section.
-            Factorial factorial = new Factorial();
+            Console.WriteLine("Enter 1 for factorials or 2 for Tower of Hanoi.");
+            string userInput = Console.ReadLine().Trim();
+            Console.WriteLine();
 
-            Console.WriteLine("Input a number to calculate the factorial of: " + "     " + "Note: Must be 30 or lower.");
-
-            try
+            switch (userInput)
             {
-                int factorialInt = Convert.ToInt32(Console.ReadLine().Trim());
-
-                if (factorialInt < 31)
-                {
-                    Console.WriteLine(Environment.NewLine + "Problem: " + factorialInt + "!");
-                    int answerInt = factorial.Calculate(factorialInt);
-
-                    Console.WriteLine(Environment.NewLine + "The answer is: " + answerInt + Environment.NewLine);
-                }
-                else
-                {
-                    Console.WriteLine(Environment.NewLine + "You must enter a number 30 or lower." + Environment.NewLine);
-                }
+                case "1":
+                    Factorial factorial = new Factorial();
+                    break;
+                case "2":
+                    Console.WriteLine("Enter number of disks on tower. For best output, try 5 or lower.");
+                    userInput = Console.ReadLine().Trim();
+                    try
+                    {
+                        HanoiTower hanoi = new HanoiTower(Convert.ToInt32(userInput));
+                    }
+                    catch
+                    {
+                        Console.WriteLine("You must enter an int. Try '3'.");
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid input.");
+                    break;
             }
-            catch
-            {
-                Console.WriteLine(Environment.NewLine + "You must enter a number 30 or lower." + Environment.NewLine);
-            }
-			
-			// Tower Section.
-            HanoiTower hanoi = new HanoiTower(3);
+
         }
     }
 }

@@ -13,28 +13,42 @@ namespace cis237InClass2
     {
         #region Variables
 
-        string diskDisplayString;
-        int diskNumberInt;
-        bool diskPresentBool;
+        string diskDisplayString;       // What the disk will visually display as.
+        int diskNumberInt;              // The disk number (aka ID).
+        bool diskPresentBool;           // Bool for if space is empty or not.
         int indexInt;
 
         #endregion
 
         #region Constructor
 
+        /// <summary>
+        /// Base Constructor.
+        /// </summary>
+        public HanoiDisk()
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor which creates a disk and populates all the variables.
+        /// </summary>
+        /// <param name="diskNumber">Number of disk on tower.</param>
         public HanoiDisk(int diskNumber)
         {
             DiskNumber = diskNumber;
 
             indexInt = 0;
             diskDisplayString = "";
+
+            // Creates a Display String to visualize the size of the disk.
             while (indexInt < diskNumber)
             {
                 diskDisplayString += "|##|";
                 indexInt++;
             }
 
-            // Determines if disk is in spot.
+            // Determines if disk is present or spot is empty.
             if (diskNumber == 0)
             {
                 diskPresentBool = false;
@@ -80,8 +94,5 @@ namespace cis237InClass2
 
         #endregion
 
-        #region Methods
-
-        #endregion
     }
 }
