@@ -60,6 +60,56 @@ namespace cis237InClass2
             }
         }
 
+        /// <summary>
+        /// Constructor which creates a disk and populates all the variables.
+        /// </summary>
+        /// <param name="diskNumber">Number of disk on tower.</param>
+        public HanoiDisk(int diskNumber, int maxNumberOfDisks)
+        {
+            DiskNumber = diskNumber;
+
+            indexInt = 0;
+            diskDisplayString = "";
+
+            while ((maxNumberOfDisks - diskNumber) > indexInt)
+            {
+                diskDisplayString += " ";
+                indexInt++;
+            }
+
+            diskDisplayString += "|";
+
+            indexInt = 0;
+
+            // Creates a Display String to visualize the size of the disk.
+            while (indexInt < diskNumber)
+            {
+                diskDisplayString += "##";
+                indexInt++;
+            }
+
+            diskDisplayString += "|";
+
+            indexInt = 0;
+
+            while ((maxNumberOfDisks - diskNumber) > indexInt)
+            {
+                diskDisplayString += " ";
+                indexInt++;
+            }
+
+            // Determines if disk is present or spot is empty.
+            if (diskNumber == 0)
+            {
+                diskPresentBool = false;
+                //diskDisplayString += "*";
+            }
+            else
+            {
+                diskPresentBool = true;
+            }
+        }
+
         #endregion
 
         #region Properties

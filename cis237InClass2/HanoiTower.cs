@@ -84,7 +84,7 @@ namespace cis237InClass2
 
             while (indexInt > 0)
             {
-                currentTower[indexInt - 1] = new HanoiDisk(indexInt);
+                currentTower[indexInt - 1] = new HanoiDisk(indexInt, numberOfDisksInt);
                 indexInt--;
             }
         }
@@ -137,6 +137,8 @@ namespace cis237InClass2
         /// </summary>
         private void DisplayAllTowers()
         {
+            Console.Clear();
+
             Console.WriteLine(Environment.NewLine + Environment.NewLine);
 
             indexInt = 0;
